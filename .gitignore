@@ -1,0 +1,15 @@
+# Mac
+.DS_Store
+_sandbox
+
+# Python
+*.py[cod]
+__pycache__
+_venv
+
+#Sphinx
+build
+
+# Vim
+*~
+*.swp

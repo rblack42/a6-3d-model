@@ -8,7 +8,7 @@ module motor_stick() {
             translate([0,0,-ms_y/2])
                 linear_extrude(height = ms_y, convexity=10)
                     polygon(ms_poly);
-    
+
     // add front wing posts
     translate([ms_x4,-ms_y/2-spar_size])
         color(WOOD_Birch)
@@ -19,4 +19,3 @@ module motor_stick() {
             round_post(h = wing_z0);
 }
 
-motor_stick();

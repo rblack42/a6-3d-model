@@ -1,5 +1,5 @@
 module rib(rc, rt, rh, rw) {
-    // rc - wing chord
+    // rc - rib chord
     // rt - camber in percentage of camber
     // rh - the height of the rib stick
     // rw - the thickness of the rib stick

@@ -117,4 +117,5 @@ prop_spar_l = 4;
 prop_spar_center_r = 1/16;
 prop_spar_tip_r = 1/32;
 prop_spar_color = WOOD_Oak;
+prop_pitch_angle = 38;
 

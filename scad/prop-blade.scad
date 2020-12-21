@@ -1,33 +1,29 @@
-module prop_form() {
-	difference() {
-		cylinder(
-			r=prop_form_radius,
-			h=prop_form_height);
-        translate([0,0,-1])
-            cylinder(
-                r=prop_form_radius-prop_blade_thickness,
-                h=prop_form_height+2);
-	}
-}
+include <colors.scad>
 
-module prop_blade_slicer() {
-    rotate([-prop_form_angle,0,0])
-    rotate([0,-90,0])
-        linear_extrude(
-                height = prop_radius + 2,
-                center = false,
-                convexity = 10)
-            scale([prop_radius,prop_max_chord/2])
-                polygon(larrabee_coords);
-}
+blade_x = 2.0;
+blade_y = 1.185;
+blade_t = 1/32;
+blade_m = 1.5;
+
+$fn=100;
 
 module prop_blade() {
-    color(WOOD_Balsa) {
-        rotate([prop_form_angle,-5,0])  // need to derive this number
-            translate([prop_form_radius,0,0])
-                intersection() {
-                    prop_form();
-                    prop_blade_slicer();
-                }
+    color(WOOD_Balsa) rotate([0,-90,0]) 
+    translate([blade_m +1,0,-blade_t/2])
+    union() {
+        difference() {
+            linear_extrude(height=blade_t,convexity=10)
+                scale([blade_m, blade_y]) circle(r=1);
+            translate([-2,-2,-0.5]) cube([4,2,1]);
+            translate([0,-2,-0.5]) cube([3,4,1]);
+        }
+        difference() {
+            linear_extrude(height=blade_t,convexity=10)
+                scale([blade_x- blade_m, blade_y]) circle(r=1);
+            translate([-2,-2,-0.5]) cube([4,2,1]);
+            translate([-3,-2,-0.5]) cube([3,4,1]);
+        }
     }
 }
+
+//prop_blade();

@@ -1,4 +1,4 @@
-include <math-magik.data>
+include <a6-data.scad>
 include <colors.scad>
 include <prop-blade.scad>
 
@@ -7,14 +7,14 @@ $fn=50;
 module prop_spar() {
     color(prop_spar_color) {
         cylinder(
-            h=prop_spar_length/2, 
-            r1=prop_spar_center_radius, 
-            r2=prop_spar_tip_radius);
+            h=prop_spar_l/2, 
+            r1=prop_spar_center_r, 
+            r2=prop_spar_tip_r);
         rotate([180,0,0])
             cylinder(
-            h=prop_spar_length/2, 
-            r1=prop_spar_center_radius, 
-            r2=prop_spar_tip_radius);
+            h=prop_spar_l/2, 
+            r1=prop_spar_center_r, 
+            r2=prop_spar_tip_r);
     }
 }
 
@@ -34,4 +34,4 @@ module propeller() {
     }
 }
 
-propeller();
+//propeller();

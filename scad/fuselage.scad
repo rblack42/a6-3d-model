@@ -9,7 +9,7 @@ include <wing.scad>
 use <propeller.scad>
 
 module spin_prop(ang=$t*360) {
-    translate([-0.25,0,-0.25]) 
+    translate([-0.25,0,-0.225]) 
     rotate([-ang,0,0])
         color(WOOD_Balsa)
             propeller();

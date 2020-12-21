@@ -1,8 +1,10 @@
-include <a6-data.scad>
 include <colors.scad>
+include <a6-data.scad>
 include <prop-blade.scad>
 
 $fn=50;
+
+propeller_pitch_angle = 0;
 
 module prop_spar() {
     color(prop_spar_color) {
@@ -27,11 +29,11 @@ module propeller() {
     rotate([0,0,90]) {
         prop_spar();
         prop_wire();
-        rotate([0,0,-prop_pitch_angle])
+        rotate([0,0,-90+prop_pitch_angle])
             prop_blade();
-            rotate([180,0,180+prop_pitch_angle])
+            rotate([180,0,-90-prop_pitch_angle])
                 prop_blade();
     }
 }
 
-//propeller();
+propeller();
